@@ -1,0 +1,43 @@
+@import '../../styles/var';
+
+
+.modal_wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional overlay */
+  :global {
+    .modal-dialog {
+      max-width: 100%;
+      margin: auto; /* Center vertically */
+      max-height: 100%;
+    }
+    .modal-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal_header {
+      display: flex !important;
+      justify-content: space-between !important;
+    }
+  }
+}
+
+.modalLayout {
+  @include modalBox;
+  margin: 0; /* Remove vertical margin */
+  padding: 2rem; /* Add padding if needed */
+  :global {
+    .btn-close {
+      opacity: 1;
+    }
+  }
+}
+

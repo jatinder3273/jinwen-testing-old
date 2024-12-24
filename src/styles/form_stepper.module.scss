@@ -1,0 +1,104 @@
+// stepper.module.scss
+
+.stepper {
+  display: flex;
+  padding-left: 24px;
+  padding-right: 24px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  .step-line {
+    //position: absolute;
+    position: relative;
+    align-self: start;
+    left: 0;
+    top: 20px;
+    //top: 30px;
+    width: 50%;
+    height: 2px;
+    background-color: #e0e0e0;
+    z-index: -1;
+  }
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  top:0;
+  align-self: start;
+  position: relative;
+  max-width: 40px;
+  //overflow: hidden;
+  .labelContainer {
+    //position: absolute;
+    position: relative;
+    top: 100%;
+    width: calc((100vw - 300px) / 6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &.active .step-circle {
+    background-color: #3190e699;
+    border: none;
+  }
+
+  &.completed .step-circle {
+    background-color: #3190e6;
+  }
+
+  & .step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //background-color: #e0e0e0;
+    color: #fff;
+    border:2px solid #e0e0e0;
+    font-weight: bold;
+
+    & .active {
+
+    }
+
+    .centerDot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #3190e6;
+    }
+  }
+
+  & .step-label {
+    margin-top: 8px;
+    font-size: 14px;
+    max-height: 32px;
+    width: auto;
+    //width: 82px;
+    //overflow: hidden;
+    text-overflow: ellipsis;
+    color: #333;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  & .step-name {
+    margin-top: 8px;
+    font-size: 14px;
+    width: 100%;
+    //height: 32px;
+    //width: 122px;
+    max-height: 32px;
+    //overflow: hidden;
+    text-overflow: ellipsis;
+    color: #333;
+    line-height: 16px;
+    text-align: center;
+  }
+}

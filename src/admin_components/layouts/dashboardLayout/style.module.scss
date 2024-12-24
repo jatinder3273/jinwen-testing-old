@@ -1,0 +1,29 @@
+@import "/src/styles/var";
+
+.layout {
+  --sidebarWidth: 0;
+  @include min(767) {
+    --sidebarWidth: 45px;
+  }
+  @include max(767) {
+    // --sidebarWidth: 0;
+    --sidebarWidth: 260px;
+  }
+  .sidebar {
+    width: var(--sidebarWidth);
+    @include max(767) {
+      position: fixed;
+    }
+  }
+  .layoutBody {
+    @include min(767) {
+      margin-left: var(--sidebarWidth);
+    }
+  }
+  &.open {
+    --sidebarWidth: 260px;
+    @include max(767) {
+      --sidebarWidth: 0;
+    }
+  }
+}
