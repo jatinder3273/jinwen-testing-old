@@ -60,8 +60,12 @@ export const SubscriptionType = () => {
       ].map((option) => (
         <div
           key={option.value}
-          className="bg-[#FCFAFA] p-4 mt-4  border border-[#DCE1E6] rounded-md overflow-hidden"
-        >
+          className={`p-4 mt-4 border  ${
+            +data?.subscription_type === option.value
+              ? "border-[#3190E6] bg-[#3190E60F]"
+              : "border-[#DCE1E6] bg-[#FCFAFA]"
+          }`}
+      >
           <Radio
             required
             checked={+data?.subscription_type === option.value}

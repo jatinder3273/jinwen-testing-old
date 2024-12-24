@@ -1,120 +1,75 @@
+
+
 import Radio from "@/components/theme/radio";
 import React from "react";
-import {useStepData} from "@/components/clientOnboarding/stepper/UseStepData";
+import { useStepData } from "@/components/clientOnboarding/stepper/UseStepData";
 
 export const InvestorType = () => {
-  const {data, setData} = useStepData();
+  const { data, setData } = useStepData();
 
   return (
     <div className="flex flex-col text-left flex-wrap">
-      <h2 className="text-[24px] md:text-[2rem] leading-[28.8px] font-bold text-[#1C2024]">Investor Type</h2>
+      <h2 className="text-[24px] md:text-[2rem] leading-[28.8px] font-bold text-[#1C2024]">
+        Investor Type
+      </h2>
       <p className="text-[#494F53] leading-[28px] mt-2 mb-6 text-[16px] font-normal">
         Is the subscriber (aka investor) an individual or an entity?
       </p>
 
       <div>
-        <div className="bg-[#FCFAFA] p-4  border border-[#DCE1E6]">
+        {/* Individual Option */}
+        <div
+          className={`p-4 border ${
+            +data?.investor_type === 1
+              ? "border-[#3190E6] bg-[#3190E60F]"
+              : "border-[#DCE1E6] bg-[#FCFAFA]"
+          }`}
+        >
           <Radio
             name="investor_type"
-            checked={(+data?.investor_type) === 1}
+            checked={+data?.investor_type === 1}
             required
             value={1}
             label="Individual"
             description="Natural persons, individuals investing through an IRA / Keogh / SEP plan, or co-subscribers."
-            onChange={(e) => setData(prevState=> {
-              const dataCopy = {...prevState};
-              dataCopy["investor_type"] = parseInt(e.target.value);
-              return dataCopy;
-            })}
+            onChange={(e) =>
+              setData((prevState) => ({
+                ...prevState,
+                investor_type: parseInt(e.target.value),
+              }))
+            }
           />
         </div>
-        <div className="bg-[#FCFAFA] p-4 mt-4 border w-full border-[#DCE1E6]">
+
+        {/* Entity Option */}
+        <div
+          className={`p-4 mt-4 border ${
+            +data?.investor_type === 2
+              ? "border-[#3190E6] bg-[#3190E60F]"
+              : "border-[#DCE1E6] bg-[#FCFAFA]"
+          }`}
+        >
           <Radio
             name="investor_type"
             required
-            checked={(+data?.investor_type) === 2}
+            checked={+data?.investor_type === 2}
             value={2}
             label="Entity"
             description="Trusts, LLCs, partnerships, corporations, benefit plans, funds, etc."
-            onChange={(e) => setData(prevData=> {
-              const dataCopy = {...prevData};
-              dataCopy["investor_type"] = parseInt(e.target.value);
-              return dataCopy;
-            })}
+            onChange={(e) =>
+              setData((prevState) => ({
+                ...prevState,
+                investor_type: parseInt(e.target.value),
+              }))
+            }
           />
         </div>
-
       </div>
-
     </div>
   );
 };
 
 export default InvestorType;
-
-// import Radio from "@/components/theme/radio";
-// import React from "react";
-// import {useStepData} from "@/components/clientOnboarding/stepper/UseStepData";
-
-// import {Map} from "immutable";
-// import { useValidation } from "@/hooks/useValidation";
-
-// export const InvestorType = () => {
-//   const {data, setData} = useStepData();
-//   const validationMap = Map<string, Validation[]>(["investor_type", [{validationType: 'MISSING', message: 'Please choose investor type.'}]]);
-//   const {errorMessage, handleInvalid} = useValidation(validationMap);
-
-//   return (
-//     <div className="flex flex-col text-left flex-wrap">
-//       <h2 className="text-[24px] md:text-[2rem] leading-[28.8px]">Investor Type</h2>
-//       <p className="text-[#494F53] leading-[28px] mt-2 mb-6 text-[16px]">
-//         Is the subscriber (aka investor) an individual or an entity?
-//       </p>
-
-//       <div>
-//         <div className="bg-[#FCFAFA] p-4  border border-[#DCE1E6]">
-//           <Radio
-//             name="investor_type"
-//             checked={(+data?.investor_type) === 1}
-//             required
-//             value={1}
-//             label="Individual"
-//             description="Natural persons, individuals investing through an IRA / Keogh / SEP plan, or co-subscribers."
-//             onChange={(e) => setData(prevState=> {
-//               const dataCopy = {...prevState};
-//               dataCopy["investor_type"] = parseInt(e.target.value);
-//               return dataCopy;
-//             })}
-//             onInvalid={handleInvalid}
-//           />
-//         </div>
-//         <div className="bg-[#FCFAFA] p-4 mt-4 border w-full border-[#DCE1E6]">
-//           <Radio
-//             name="investor_type"
-//             required
-//             checked={(+data?.investor_type) === 2}
-//             value={2}
-//             onInvalid={handleInvalid}
-//             label="Entity"
-//             description="Trusts, LLCs, partnerships, corporations, benefit plans, funds, etc."
-//             onChange={(e) => setData(prevData=> {
-//               const dataCopy = {...prevData};
-//               dataCopy["investor_type"] = parseInt(e.target.value);
-//               return dataCopy;
-//             })}
-//           />
-//         </div>
-
-//       </div>
-
-//         {errorMessage&&<span>{errorMessage}</span>}
-//     </div>
-//   );
-// };
-
-// export default InvestorType;
-
-
 
 
 

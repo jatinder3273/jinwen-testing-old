@@ -1,6 +1,5 @@
 
 
-
 import Radio from '@/components/theme/radio';
 import React from 'react';
 import { useStepData } from '../../stepper/UseStepData';
@@ -10,13 +9,19 @@ const QualifiedClient = () => {
 
   return (
     <div className="flex flex-col text-left flex-wrap">
-       <h2 className="text-[24px] md:text-[2rem] leading-[28.8px] font-bold text-[#1C2024]">Qualified Client Status</h2>
+      <h2 className="text-[24px] md:text-[2rem] leading-[28.8px] font-bold text-[#1C2024]">
+        Qualified Client Status
+      </h2>
       <p className="text-[#494F53] leading-[28px] mt-2 mb-6 text-[16px] font-normal">
         Select the "qualified client" attestation that best applies to the subscriber:
       </p>
 
       <div>
-        <div className="bg-[#FCFAFA] p-4 mb-4 border border-[#DCE1E6]">
+        <div
+          className={`p-4 mb-4 border ${
+            +data?.qualified_client_status === 1 ? 'border-[#3190E6] bg-[#3190E60F]' : 'border-[#DCE1E6] bg-[#FCFAFA]'
+          }`}
+        >
           <Radio
             name="qualified_client_status"
             checked={+data?.qualified_client_status === 1}
@@ -32,7 +37,11 @@ const QualifiedClient = () => {
             }
           />
         </div>
-        <div className="bg-[#FCFAFA] p-4 mb-4 border w-full border-[#DCE1E6]">
+        <div
+          className={`p-4 mb-4 border w-full ${
+            +data?.qualified_client_status === 2 ? 'border-[#3190E6] bg-[#3190E60F]' : 'border-[#DCE1E6] bg-[#FCFAFA] '
+          }`}
+        >
           <Radio
             name="qualified_client_status"
             required
@@ -49,7 +58,11 @@ const QualifiedClient = () => {
           />
         </div>
 
-        <div className="bg-[#FCFAFA] p-4 mb-4 border border-[#DCE1E6]">
+        <div
+          className={`p-4 mb-4 border ${
+            +data?.qualified_client_status === 3 ? 'border-[#3190E6] bg-[#3190E60F]' : 'border-[#DCE1E6] bg-[#FCFAFA]'
+          }`}
+        >
           <Radio
             name="qualified_client_status"
             checked={+data?.qualified_client_status === 3}
@@ -65,7 +78,11 @@ const QualifiedClient = () => {
             }
           />
         </div>
-        <div className="bg-[#FCFAFA] p-4 border w-full border-[#DCE1E6]">
+        <div
+          className={`p-4 mb-4 border w-full ${
+            +data?.qualified_client_status === 4 ? 'border-[#3190E6] bg-[#3190E60F]' : 'border-[#DCE1E6] bg-[#FCFAFA] '
+          }`}
+        >
           <Radio
             name="qualified_client_status"
             required

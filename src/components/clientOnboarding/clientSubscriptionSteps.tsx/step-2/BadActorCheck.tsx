@@ -1,3 +1,5 @@
+
+
 "use-client";
 import Radio from "@/components/theme/radio";
 import React from "react";
@@ -8,10 +10,9 @@ const BadActorCheck = () => {
 
   const isCheck = data?.bad_actor_check === true || data?.bad_actor_check === "true";
 
-
   return (
     <div className="flex flex-col text-left flex-wrap">
-       <h2 className="text-[24px] md:text-[2rem] leading-[28.8px] font-bold text-[#1C2024]">
+      <h2 className="text-[24px] md:text-[2rem] leading-[28.8px] font-bold text-[#1C2024]">
         Bad Actor Check
       </h2>
 
@@ -23,44 +24,45 @@ const BadActorCheck = () => {
       </p>
 
       <p className="text-[#494F53] leading-[28px] mt-2 mb-6 text-[16px] font-normal">
-        <strong className="font-bold">Notice:</strong>  Ensure you select "No" if the Subscriber has not experienced any disqualifying event
-        </p>
+        <strong className="font-bold">Notice:</strong> Ensure you select "No" if the Subscriber has not experienced any disqualifying event.
+      </p>
 
-
-      <div className="flex justify-between">
-        <div className="bg-[#FCFAFA] p-4 py-2 w-full h-[51] border border-[#DCE1E6]">
+      <div className="flex justify-between gap-[18px]">
+        <div
+          className={`p-4 py-2 w-full h-[51px] border ${
+            isCheck ? "border-[#3190E6] bg-[#3190E60F]" : "border-[#DCE1E6] bg-[#FCFAFA]"
+          }`}
+        >
           <Radio
             name="bad_actor_check"
-            // checked={+data?.bad_actor_check === 1}
             checked={isCheck}
-
             value="true"
             required
             label="Yes"
-            onChange={(e) =>
-             
-                setData((prevState) => ({
-                  ...prevState,
-                  bad_actor_check: true, 
-                }))
-              
-              
+            onChange={() =>
+              setData((prevState) => ({
+                ...prevState,
+                bad_actor_check: true,
+              }))
             }
           />
         </div>
-        <div className="bg-[#FCFAFA] p-4 py-2  h-[51] w-full ms-2 border border-[#DCE1E6]">
+
+        <div
+          className={`p-4 py-2 h-[51px] w-full border ${
+            !isCheck ? "border-[#3190E6] bg-[#3190E60F]" : "border-[#DCE1E6] bg-[#FCFAFA]"
+          }`}
+        >
           <Radio
             required
             name="bad_actor_check"
-            // checked={+data?.bad_actor_check === 0}
             checked={!isCheck}
-
             value="false"
             label="No"
-            onChange={(e) =>
+            onChange={() =>
               setData((prevState) => ({
                 ...prevState,
-                bad_actor_check:false, 
+                bad_actor_check: false,
               }))
             }
           />
@@ -71,3 +73,4 @@ const BadActorCheck = () => {
 };
 
 export default BadActorCheck;
+

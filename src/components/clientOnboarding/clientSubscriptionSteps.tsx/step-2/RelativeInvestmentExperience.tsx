@@ -1,5 +1,6 @@
 
 
+
 "use client";
 
 import Radio from '@/components/theme/radio';
@@ -10,8 +11,6 @@ const RelativeInvestmentExperience = () => {
   const { data, setData } = useStepData();
 
   const isCheck = data?.is_relative_investment === true || data?.is_relative_investment === "true";
-  
-  
 
   return (
     <div className="flex flex-col text-left flex-wrap">
@@ -23,43 +22,42 @@ const RelativeInvestmentExperience = () => {
         Is the intended subscription amount less than 10% of the Subscriber's net worth?
       </p>
 
-      <div className="flex justify-between">
-       
-        <div className="bg-[#FCFAFA] p-4  h-[51] w-full py-2 border border-[#DCE1E6]">
+      <div className="flex justify-between gap-[18px]">
+        <div
+          className={`p-4 h-[51px] w-full py-2 border ${
+            isCheck ? 'border-[#3190E6] bg-[#3190E60F]' : 'border-[#DCE1E6] bg-[#FCFAFA] '
+          }`}
+        >
           <Radio
             name="is_relative_investment"
-      
             checked={isCheck}
-
-      
-            value="true" 
+            value="true"
             required
             label="Yes"
             onChange={(e) =>
               setData((prevState) => ({
                 ...prevState,
-                is_relative_investment: true, 
+                is_relative_investment: true,
               }))
             }
           />
         </div>
 
-     
-        <div className="bg-[#FCFAFA] p-4 py-2  h-[51] w-full ms-2 border border-[#DCE1E6]">
+        <div
+          className={`p-4 py-2 h-[51px] w-full border ${
+            !isCheck ? 'border-[#3190E6] bg-[#3190E60F]' : 'border-[#DCE1E6] bg-[#FCFAFA]'
+          }`}
+        >
           <Radio
             name="is_relative_investment"
-         
-             
             checked={!isCheck}
-
-         
-            value="false" 
+            value="false"
             required
             label="No"
             onChange={(e) =>
               setData((prevState) => ({
                 ...prevState,
-                is_relative_investment:false, 
+                is_relative_investment: false,
               }))
             }
           />

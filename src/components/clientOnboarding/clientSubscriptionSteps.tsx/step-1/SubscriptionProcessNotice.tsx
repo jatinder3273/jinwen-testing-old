@@ -32,7 +32,7 @@ export const SubscriptionProcessNotice = () => {
           representative.
         </span>
 
-        <div className="mt-3 flex items-start gap-2">
+        <div className="mt-3 flex items-start gap-2 accent-primary">
           <input
             id="subscription_process_notice"
             name="subscription_process_notice"

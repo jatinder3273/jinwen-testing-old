@@ -23,7 +23,7 @@
 //   const [selectedCountryCode, setSelectedCountryCode] = useState<string>(countryCode);
 //   const [inputPhoneNumber, setInputPhoneNumber] = useState<string>(phoneNumber);
 
- 
+
 //   useEffect(() => {
 //     setSelectedCountryCode(countryCode);
 //     setInputPhoneNumber(phoneNumber);
@@ -43,7 +43,7 @@
 
 //   return (
 //     <div className={`flex items-center border border-gray-300 rounded-md w-full ${className}`}>
-     
+
 //       <select
 //         name="subscriber_phone_code"
 //         value={selectedCountryCode}
@@ -87,6 +87,8 @@ interface PhoneInputProps {
   required?: boolean;
   className?: string;
   placeholder?: string;
+  ref?: any;
+  onBlur?: any;
 }
 
 const PhoneInput: React.FC<PhoneInputProps> = ({
@@ -100,7 +102,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   const [selectedCountryCode, setSelectedCountryCode] = useState<string>(countryCode);
   const [inputPhoneNumber, setInputPhoneNumber] = useState<string>(phoneNumber);
 
- 
+
   useEffect(() => {
     setSelectedCountryCode(countryCode);
     setInputPhoneNumber(phoneNumber);
@@ -120,7 +122,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
 
   return (
     <div className={`flex items-center border border-gray-300 rounded-md w-full ${className}`}>
-     
+
       <select
         name="subscriber_phone_code"
         value={selectedCountryCode}

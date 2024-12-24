@@ -95,6 +95,8 @@ const ProofOfId = () => {
     }
   };
 
+  
+
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragOver(true);
@@ -141,7 +143,7 @@ const ProofOfId = () => {
           ref={fileElement}
           type="file"
           name="id_proof"
-          required
+          // required
           accept=".jpeg, .jpg, .png, .pdf"
           className="hidden"
           id="fileInput"
@@ -188,3 +190,5 @@ const ProofOfId = () => {
 };
 
 export default ProofOfId;
+
+

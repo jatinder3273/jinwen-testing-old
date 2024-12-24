@@ -34,10 +34,13 @@ const InvestorSubscriptionSidebar: React.FC<InvestorSidebarProps> = ({ toggleSid
 
   return (
     <div
-      className={`relative min-h-[100vh]  oweflow-y-auto  bg-dbBlack ${
+      className={`fixed oweflow-y-auto z-1 h-100vh  bg-dbBlack  ${
         isSidebarOpen ? "py-6 px-7 w-64" : "w-16"
       } transition-all duration-300`}
-    >
+      style={{
+        overflowY : "auto",
+        height : "100vh"
+      }}>
       <button
         className="flex items-center justify-center absolute top-7 right-0 cursor-pointer w-8 h-8 rounded-l-[3rem] bg-primary text-white"
         onClick={toggleSidebar}
